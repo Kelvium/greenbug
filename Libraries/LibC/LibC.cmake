@@ -1,3 +1,4 @@
 list(APPEND LIBC_SRC
-    stdint.h
+        stdint.h
+        bits/types.h
 )
