@@ -1,8 +1,5 @@
 project(Kernel)
 
-# includes
-include(Kernel.cmake)
-
 # options
 # compiler options
 list(APPEND KERNEL_COPT
@@ -18,6 +15,10 @@ list(APPEND KERNEL_LOPT
         -T ${KERNEL_SOURCE_DIR}/linker.ld
         -nostdlib
 )
+
+# includes
+include(Kernel.cmake)
+add_subdirectory(Boot)
 
 # build
 add_executable(Kernel ${KERNEL_SRC})
