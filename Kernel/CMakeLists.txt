@@ -25,6 +25,6 @@ include(Kernel.cmake)
 enable_language(ASM)
 
 # build
-add_executable(Kernel ${KERNEL_SRC} Boot/i386/Boot.S)
+add_executable(Kernel ${KERNEL_SRC})
 target_compile_options(Kernel PRIVATE ${KERNEL_COPT})
 target_link_options(Kernel PRIVATE LINKER:${KERNEL_LOPT})
