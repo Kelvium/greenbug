@@ -5,8 +5,6 @@
 #ifndef MULTIBOOT_HEADER
 #define MULTIBOOT_HEADER 1
 
-#include <stdint.h>
-
 /*  How many bytes from the start of the file we search for the header. */
 #define MULTIBOOT_SEARCH                        32768
 #define MULTIBOOT_HEADER_ALIGN                  8
@@ -74,10 +72,7 @@
 
 #ifndef ASM_FILE
 
-typedef unsigned char           u8;
-typedef unsigned short          u16;
-typedef unsigned int            u32;
-typedef unsigned long long      u64;
+#include <stdint.h>
 
 struct multiboot_header
 {
