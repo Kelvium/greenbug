@@ -1,5 +1,7 @@
 project(Kernel)
 
+set(KERNEL_SOURCE_DIR ${CMAKE_SOURCE_DIR}/Kernel)
+
 # options
 # compiler options
 list(APPEND KERNEL_COPT
@@ -11,7 +13,7 @@ list(APPEND KERNEL_COPT
 )
 # linker options
 list(APPEND KERNEL_LOPT
-        -m32
+        -melf_i386
         -T ${KERNEL_SOURCE_DIR}/linker.ld
         -nostdlib
 )
