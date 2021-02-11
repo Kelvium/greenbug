@@ -25,11 +25,11 @@ multiboot_header:
     /* magic */
     .long MULTIBOOT2_HEADER_MAGIC
     /* ISA: i386 */
-    .long GRUB_MULTIBOOT_ARCHITECTURE_I386
+    .long MULTIBOOT_ARCHITECTURE_I386
     /* header length. */
     .long multiboot_header_end - multiboot_header
     /* checksum */
-    .long -(MULTIBOOT2_HEADER_MAGIC + GRUB_MULTIBOOT_ARCHITECTURE_I386 + (multiboot_header_end - multiboot_header))
+    .long -(MULTIBOOT2_HEADER_MAGIC + MULTIBOOT_ARCHITECTURE_I386 + (multiboot_header_end - multiboot_header))
 
 #ifndef __ELF__
 address_tag_start:
@@ -75,7 +75,7 @@ multiboot_header_end:
 
 multiboot_entry:
     /* Initialize the stack pointer. */
-    movl $stack, %esp
+    // movl $stack, %esp
 
     /* Reset EFLAGS. */
     pushl $0
@@ -95,8 +95,8 @@ loop:
     hlt
     jmp loop
 
-halt_message:
-    .asciz "Halted."
-
-    /* Our stack area. */
-    .comm stack, STACK_AREA
+//halt_message:
+//    .asciz "Halted."
+//
+//    /* Our stack area. */
+//    .comm stack, STACK_AREA
