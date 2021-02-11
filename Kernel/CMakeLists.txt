@@ -20,9 +20,11 @@ list(APPEND KERNEL_LOPT
 
 # includes
 include(Kernel.cmake)
-add_subdirectory(Boot)
+
+# enable ASM
+enable_language(ASM)
 
 # build
-add_executable(Kernel ${KERNEL_SRC})
+add_executable(Kernel ${KERNEL_SRC} Boot/i386/Boot.S)
 target_compile_options(Kernel PRIVATE ${KERNEL_COPT})
 target_link_options(Kernel PRIVATE LINKER:${KERNEL_LOPT})
